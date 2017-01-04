@@ -1,3 +1,9 @@
 body {
   background: #ccc;
 }
+
+.hoge {
+  display: -ms-flexbox;
+  display: flex;
+  transition: 10s ease;
+}

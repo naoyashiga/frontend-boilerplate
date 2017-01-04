@@ -1,6 +1,11 @@
 var gulp = require('gulp'), 
     $ = require('gulp-load-plugins')();
 
+const autoprefixerOptions = {
+  browsers: ['last 2 versions'],
+  cascade: false
+};
+
 gulp.task('server', function() {
   gulp.src('./dist/')
     .pipe($.webserver({
@@ -28,6 +33,7 @@ gulp.task('pug', () => {
 gulp.task('sass', function(){
   gulp.src('./src/sass/**/*.scss')
     .pipe($.sass({outputStyle: 'expanded'}))
+    .pipe($.autoprefixer(autoprefixerOptions))
     .pipe(gulp.dest('./dist/css/'));
 });
 
